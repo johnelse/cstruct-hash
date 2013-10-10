@@ -47,11 +47,45 @@ let suite_test_hash_part =
 				test_name >:: (fun () -> test_hash_part test_string))
 			non_empty_test_strings)
 
+let test_negative_length () =
+	let cstruct = Cstruct.of_string "foobar" in
+	assert_raises
+		(Invalid_argument "length")
+		(fun () -> Cstruct_hash.md5sum cstruct 2 (-5))
+
+let test_negative_offset () =
+	let cstruct = Cstruct.of_string "foobar" in
+	assert_raises
+		(Invalid_argument "offset")
+		(fun () -> Cstruct_hash.md5sum cstruct (-3) 4)
+
+let test_too_large_length () =
+	let cstruct = Cstruct.of_string "foobar" in
+	assert_raises
+		(Invalid_argument "length")
+		(fun () -> Cstruct_hash.md5sum cstruct 3 5)
+
+let test_too_large_offset () =
+	let cstruct = Cstruct.of_string "foobar" in
+	assert_raises
+		(Invalid_argument "offset")
+		(fun () -> Cstruct_hash.md5sum cstruct 7 2)
+
+let suite_test_bounds_checking =
+	"suite_test_bounds_checking" >:::
+		[
+			"test_negative_length" >:: test_negative_length;
+			"test_negative_offset" >:: test_negative_offset;
+			"test_too_large_length" >:: test_too_large_length;
+			"test_too_large_offset" >:: test_too_large_offset;
+		]
+
 let base_suite =
 	"base_suite" >:::
 		[
 			suite_test_hash_all;
 			suite_test_hash_part;
+			suite_test_bounds_checking;
 		]
 
 let _ = run_test_tt_main base_suite

@@ -19,6 +19,7 @@ CAMLprim value cstruct_md5sum(value buffer, value offset, value length) {
 
     result = caml_alloc_string(MD5_DIGEST_LENGTH);
     data = (unsigned char*) Data_bigarray_val(buffer);
+    data += Int_val(offset);
 
     MD5(data, Int_val(length), digest);
     memmove(String_val(result), digest, MD5_DIGEST_LENGTH);

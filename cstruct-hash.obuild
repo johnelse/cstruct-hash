@@ -1,0 +1,17 @@
+name: cstruct-hash
+version: 0.1.0
+synopsis: Experiments relating to hashing cstructs in place
+obuild-ver: 1
+
+library cstruct_hash
+  src-dir: lib
+  modules: cstruct_hash
+  build-deps: cstruct
+  cdir: lib
+  c-sources: cstruct_hash_stubs.c
+
+test cstruct_hash_test
+  main: cstruct_hash_test.ml
+  src-dir: test
+  build-deps: cstruct_hash
+  c-libs: crypto

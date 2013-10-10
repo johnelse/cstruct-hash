@@ -13,5 +13,5 @@ library cstruct_hash
 test cstruct_hash_test
   main: cstruct_hash_test.ml
   src-dir: test
-  build-deps: cstruct_hash
+  build-deps: cstruct_hash, oUnit
   c-libs: crypto

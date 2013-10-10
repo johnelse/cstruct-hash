@@ -1,6 +1,6 @@
 .PHONY: clean test
 
-dist/build/rrd-protocol/rrd-protocol:
+dist/build/lib-cstruct_hash/cstruct_hash.cmxa:
 	obuild configure --enable-tests
 	obuild build
 

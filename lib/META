@@ -1,0 +1,8 @@
+version = "0.9.0"
+description = "Library for hashing parts of cstructs in-place"
+requires = "cstruct"
+archive(byte) = "cstruct_hash.cma"
+archive(byte, plugin) = "cstruct_hash.cma"
+archive(native) = "cstruct_hash.cmxa"
+archive(native, plugin) = "cstruct_hash.cmxa"
+exists_if = "cstruct_hash.cma"

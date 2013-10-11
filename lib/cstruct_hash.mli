@@ -1,1 +1,1 @@
-val md5sum : Cstruct.t -> int -> int -> string
+val md5sum : Cstruct.t -> int -> int -> Digest.t

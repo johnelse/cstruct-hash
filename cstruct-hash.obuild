@@ -1,6 +1,6 @@
 name: cstruct-hash
 version: 0.1.0
-synopsis: Experiments relating to hashing cstructs in place
+synopsis: Library for hashing parts of cstructs in-place
 obuild-ver: 1
 
 library cstruct_hash

@@ -1,0 +1,6 @@
+PKG cstruct oUnit
+S lib
+S test
+
+B dist/build/lib-cstruct_hash
+B dist/build/cstruct_hash_test
